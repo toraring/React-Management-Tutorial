@@ -1,16 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Customer from './components/Customer';
 
-function App() {
-  return (
-    <div className="gray-background">
-      <img src={logo} lat="Cooodddding" />
-      <h2>코딩은 어렵다
-      </h2>
-    
-    </div>
-  );
+const customers = [
+  {
+  'id' : 1,
+  'image' : 'https://placeimg.com/64/64/1',
+  'name' : '코오딩',
+  'birthday' : '999999',
+  'gender' : '남'
+ },
+ {
+  'id' : 2,
+  'image' : 'https://placeimg.com/64/64/2',
+  'name' : '뚜벅이',
+  'birthday' : '878888',
+  'gender' : '남'
+ },
+ {
+  'id' : 3,
+  'image' : 'https://placeimg.com/64/64/3',
+  'name' : '메롱',
+  'birthday' : '567890',
+  'gender' : '남'
+ }
+]
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        {
+          customers.map(c => {
+            return(
+              <Customer
+                key={c.id}
+                id={c.id}
+                image={c.image}
+                name={c.name}
+                birthday={c.birthday}
+                gender={c.gender}
+                />
+            )
+          })
+        }
+      </div>
+    );
+  }
 }
+
 
 export default App;
